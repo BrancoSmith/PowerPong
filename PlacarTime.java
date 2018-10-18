@@ -14,17 +14,21 @@ public class PlacarTime extends Actor
      */
     public PlacarTime()
     {
-        atualizaImagem(valor);
-    }
+        atualizaImagem(valor);        
+    }    
 
     /**
      * Act - do whatever the PlacarTime wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        atualizaImagem(valor);
-        atualizaImagem();
-        resetImagem();
+        Jogo mundo = (Jogo) getWorld();
+        if(mundo.cicloAtual()>193){
+            atualizaImagem(valor);
+            atualizaImagem();
+            resetImagem();
+        }
+        
     }
 
     /**
@@ -42,19 +46,19 @@ public class PlacarTime extends Actor
     public void atualizaImagem()
     {
         float resultado = 300;
-        resultado = getWorldOfType(MyWorld.class).getCiclo() % 8;
+        resultado = getWorldOfType(Jogo.class).getCiclo() % 8;
         if ((resultado > 6)&&(valor !=0)){
             valor = valor - 1;
         }
-       
+
     }
-    
+
     public void resetImagem(){
         if(valor == 0){
             valor = 300;
         }
     }
-   
+
     /**
      * 
      */
@@ -62,7 +66,7 @@ public class PlacarTime extends Actor
     {
         return String.format("%03d", valor);
     }
-    
+
     public int getValor() {
         return valor;
     }

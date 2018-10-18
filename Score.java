@@ -16,10 +16,10 @@ public class Score extends Actor
     {
         // Add your action code here.
     }   
-      public  Score(){
-         GreenfootImage img = new GreenfootImage("Score.png");
-         //img.fillRect(0, 0,img.getWidth()-1, img.getHeight()-1);
-         setImage(img);
-    
+
+    public  Score(){
+        GreenfootImage img = new GreenfootImage("Score.png");
+        //img.fillRect(0, 0,img.getWidth()-1, img.getHeight()-1);
+        setImage(img);    
     }
 }

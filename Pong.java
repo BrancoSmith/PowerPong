@@ -20,9 +20,8 @@ public class Pong extends Actor
         possoAndarParaBaixo();
         ligarBoost();
         rotacao();
-       
     }
-   
+
     public Pong(){
         GreenfootImage img = new GreenfootImage(15, 78);
         img.setColor(Color.WHITE);
@@ -59,7 +58,7 @@ public class Pong extends Actor
             setRotation(0);
         }
     }
-    
+
     public void ligarBoost(){
         if(Greenfoot.isKeyDown("e")){
             statusBoost = true;
@@ -101,17 +100,12 @@ public class Pong extends Actor
     public boolean getStatusBoost(){
         return this.statusBoost;
     }    
-    
+
     public void rotacao(){
         if(Greenfoot.isKeyDown("a")){
             setRotation(-45);
         }else if(Greenfoot.isKeyDown("d")){
-         setRotation(45);
+            setRotation(45);
         }
-    }
-    
-    
-    
-
+    }    
 }   
-
