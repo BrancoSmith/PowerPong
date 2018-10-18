@@ -58,7 +58,6 @@ public class Bola extends Actor
         }
     }
     
-    
     public void somaPontoUm(){
         if(getX()>= 695){
             MyWorld World =(MyWorld) getWorld();
