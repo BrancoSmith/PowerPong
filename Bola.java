@@ -8,6 +8,7 @@ public class Bola extends Actor
 {
     public int speed = 3;
     public int hDirection = 1;//Direita:1 Esquerda:-1
+<<<<<<< HEAD
     public int vDirection = 1;//Cima:-1 Baixo=1
     public int res = 0;//Variável pra fazer essa desgraça funcionar
     /**
@@ -19,12 +20,27 @@ public class Bola extends Actor
         if(mundo.cicloAtual()>193){
             movimentoBola();
         }
+=======
+    public int vDirection = 1;//Cima:-1 Baixo=1    
+    
+    public void act()
+    {
+        vaiBola();
+        speedUp();
+>>>>>>> 6460973f03d83aeb6b733d3453a71b6f8ae851b2
         changeDirection();
         somaPontoUm();
         somaPontoDois();
         addRes();
         speedUp();
         resetRes();
+    }
+
+    public void vaiBola(){
+        Jogo mundo = (Jogo) getWorld(); 
+        if(mundo.cicloAtual()>193){
+            movimentoBola();
+        }
     }
 
     public void movimentoBola(){
@@ -43,7 +59,7 @@ public class Bola extends Actor
         if(getY()>=getWorld().getHeight() - 5){
             vDirection*=-1;
         }
-         if(getX() <= 5){
+        if(getX() <= 5){
             hDirection*=-1;
         }
         if(getY() <= 5){
@@ -62,7 +78,7 @@ public class Bola extends Actor
             hDirection*= - 1;
         }
     }
-    
+
     public void somaPontoUm(){
         if(getX()>= 695){
             Jogo World =(Jogo) getWorld();
@@ -78,6 +94,7 @@ public class Bola extends Actor
             World.acrescentaPontosPartida(1);
         }
     }
+<<<<<<< HEAD
     
     public void addRes(){//adiciona +1 na variavel res, maximo 8 por causa da repetiçao do n° 1 oito vezes(vlw Matheus)
         Jogo mundo = getWorldOfType(Jogo.class);
@@ -99,12 +116,24 @@ public class Bola extends Actor
         }
     }
     
+=======
+
+    public void speedUp(){        
+        Jogo mundo = getWorldOfType(Jogo.class);           
+        if (mundo.oTempoEstaZerado()){
+            this.speed = this.speed+1;
+        }                 
+    }
+
+>>>>>>> 6460973f03d83aeb6b733d3453a71b6f8ae851b2
     public  Bola(){
         GreenfootImage img = new GreenfootImage(18, 17);
         img.setColor(Color.WHITE);
         img.fillRect(0, 0,img.getWidth()-1, img.getHeight()-1);
         setImage(img);
     }
+<<<<<<< HEAD
      
+=======
+>>>>>>> 6460973f03d83aeb6b733d3453a71b6f8ae851b2
 }
-

@@ -66,7 +66,7 @@ public class Jogo extends World
         Pong pong =  new  Pong();
         addObject(pong, 50, 200);
         Bola bola =  new  Bola();
-        addObject(bola, 401, 192);
+        addObject(bola, 351, 190);
         this.pontuacaoUm =  new  PlacarPong1();
         addObject(this.pontuacaoUm, 73, 9);
         this.pontuacaoDois =  new  PlacarPong2();

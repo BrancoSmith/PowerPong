@@ -27,8 +27,7 @@ public class PlacarTime extends Actor
             atualizaImagem(valor);
             atualizaImagem();
             resetImagem();
-        }
-        
+        }        
     }
 
     /**
