@@ -24,7 +24,7 @@ public class Jogo extends World
     }
 
     public boolean oTempoEstaZerado(){
-        return this.placartime.valor == 2;
+        return this.placartime.valor == 1;
     }
 
     public void act()
