@@ -45,8 +45,7 @@ public class PlacarTime extends Actor
      */
     public void atualizaImagem()
     {
-        float resultado = 300;
-        resultado = getWorldOfType(Jogo.class).getCiclo() % 8;
+        float resultado = getWorldOfType(Jogo.class).getCiclo() % 8;
         if ((resultado > 6)&&(valor !=0)){
             valor = valor - 1;
         }

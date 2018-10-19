@@ -9,6 +9,7 @@ public class Bola extends Actor
     public int speed = 3;
     public int hDirection = 1;//Direita:1 Esquerda:-1
     public int vDirection = 1;//Cima:-1 Baixo=1
+    public int res = 0;//Variável pra fazer essa desgraça funcionar
     /**
      * 
      */
@@ -20,8 +21,10 @@ public class Bola extends Actor
         }
         changeDirection();
         somaPontoUm();
-        somaPontoDois(); 
+        somaPontoDois();
+        addRes();
         speedUp();
+        resetRes();
     }
 
     public void movimentoBola(){
@@ -76,14 +79,26 @@ public class Bola extends Actor
         }
     }
     
-    public void speedUp(){
+    public void addRes(){//adiciona +1 na variavel res, maximo 8 por causa da repetiçao do n° 1 oito vezes(vlw Matheus)
         Jogo mundo = getWorldOfType(Jogo.class);
         if(mundo.oTempoEstaZerado()){
-            this.speed = speed +1;
+            this.res = res +1;
            
         }
     }
-   
+    
+    public void resetRes(){//Faz essa desgraça voltar pra 1
+        if(res == 8){
+            res = 0;
+        }
+    }
+    
+    public void speedUp(){
+        if(res == 8){
+            speed = speed+2;
+        }
+    }
+    
     public  Bola(){
         GreenfootImage img = new GreenfootImage(18, 17);
         img.setColor(Color.WHITE);
