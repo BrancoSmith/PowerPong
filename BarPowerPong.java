@@ -1,3 +1,6 @@
+package PowerPong;
+
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -8,57 +11,52 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BarPowerPong extends Actor
 {
-    final int boostCiclos = 200;
+    
+    //final int boostCiclos = 200;
     int barPowerWidth = 80;
     int barPowerHeight = 15;
-
-    int timerPower = boostCiclos;
-    boolean statusPower = false;
+    Pong pong;
+    
+    
     /**
      * Act - do whatever the BarraPower wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
 
-    public BarPowerPong(){
-        update();
+    
+    
+    protected void addedToWorld(World world)
+    {
+        super.addedToWorld(world);
+        pong = ((Jogo)world).pong;
     }
 
     public void act() 
     {
         update();
-        ligarLosePower();
-    }    
-
+        pong.ligarBoost();
+        pong.controleBoost();
+        
+       
+     }    
+     
     public void update(){
+        int timerBoost = pong.timerBoost;
         setImage(new GreenfootImage(barPowerWidth + 2, barPowerHeight + 2));
         GreenfootImage myImage = getImage();
         myImage.setColor(Color.WHITE);
         myImage.drawRect(0, 0, barPowerWidth + 1, barPowerHeight + 1);
         myImage.setColor(Color.GREEN);
-        int tam = timerPower * barPowerWidth / boostCiclos;
+        int tam =  barPowerWidth * timerBoost / pong.timerBoostTotal ;
         myImage.fillRect(1 , 1, tam, barPowerHeight);
 
     }
 
-    public void ligarLosePower(){
-        if(Greenfoot.isKeyDown("E")){
-            statusPower = true;
-            timerPower = boostCiclos;
-        }
-        controlePower();
+    
        
-    }
-
-    public void controlePower(){
-        if(statusPower){
-            //1 segundo dura em media 60 ciclos;
-            if(timerPower >= 0){
-                timerPower = timerPower - 1;
-            }else{
-                statusPower = false;
-            }
-        }  
-    }
+   
+    
+    
 
        
    

@@ -13,6 +13,8 @@ public class Jogo extends World
     private PlacarMatch numeroPartidas;
     private Integer ciclo = 0;
     private PlacarTime placartime;
+    public Pong pong;
+    public Pong2 pong2;
     /**
      * Constructor for objects of class MyWorld.
      */
@@ -32,7 +34,8 @@ public class Jogo extends World
         cicloAtual++;
         contaCiclo();
     }
-
+    
+    
     /**
      * Prepare the world for the start of the program. That is: create the initial objects and add them to the world.
      */
@@ -61,10 +64,10 @@ public class Jogo extends World
         addObject(time2, 459, 9);
         BarraCentral barraCentral =  new  BarraCentral();
         addObject(barraCentral, getWidth()/2, 195);
-        Pong2 pong2 =  new  Pong2();
-        addObject(pong2, 650, 200);
-        Pong pong =  new  Pong();
-        addObject(pong, 50, 200);
+        this.pong2 =  new  Pong2();
+        addObject(this.pong2, 660, 200);
+        this.pong =  new  Pong();
+        addObject(this.pong, 50, 200);
         Bola bola =  new  Bola();
         addObject(bola, 351, 190);
         this.pontuacaoUm =  new  PlacarPong1();
@@ -78,11 +81,16 @@ public class Jogo extends World
         placartime.setLocation(495, 8);
         placartime.setLocation(497, 8);
         BarPowerPong barPowerPong = new BarPowerPong();
-        addObject(barPowerPong,36,379);
-        barPowerPong.setLocation(53,379);
+        addObject(barPowerPong, 50,380);
+        BarPowerPong2 barPowerPong2 = new BarPowerPong2();
+        addObject(barPowerPong2,  645, 380);
         go go = new go();
         addObject(go,354,189);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> e4262b7f909f63860c1395a8bcde3e4b21bef1f4
     }
 
     public int cicloAtual(){
