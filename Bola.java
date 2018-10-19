@@ -1,3 +1,5 @@
+package PowerPong;
+
 import lang.stride.*;
 import greenfoot.*;
 /**

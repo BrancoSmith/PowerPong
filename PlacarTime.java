@@ -1,3 +1,5 @@
+package PowerPong;
+
 import greenfoot.*;
 
 /**
