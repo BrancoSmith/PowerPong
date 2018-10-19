@@ -12,8 +12,9 @@ public class Pong extends Actor
      * Act - do whatever the Pong wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    final public int timerBoostTotal = 400;
     boolean statusBoost = false;
-    int timerBoost= 0;
+    public int timerBoost= 400;
     public void act() 
     {
         possoAndarParaCima();
@@ -69,8 +70,8 @@ public class Pong extends Actor
     public void controleBoost(){
         if(getStatusBoost()){
             //1 segundo dura em media 60 ciclos;
-            if(getTimerBoost() <= 200){
-                setTimerBoost(getTimerBoost() + 1);
+            if(getTimerBoost() >= 0){
+                setTimerBoost(getTimerBoost() - 1);
             }else{
                 statusBoost = false;
             }
@@ -83,7 +84,7 @@ public class Pong extends Actor
         }else{
             return 3;    
         }
-    }
+     }
     //Getters e Setters
     public void setTimerBoost(int valor){
         this.timerBoost = valor;
@@ -99,7 +100,7 @@ public class Pong extends Actor
 
     public boolean getStatusBoost(){
         return this.statusBoost;
-    }    
+    }   
 
     public void rotacao(){
         if(Greenfoot.isKeyDown("a")){

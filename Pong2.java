@@ -1,3 +1,5 @@
+package PowerPong;
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -12,8 +14,9 @@ public class Pong2 extends Actor
      * Act - do whatever the Pong2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    final public int timerBoostTotal = 400;
     boolean statusBoost = false;
-    int timerBoost= 0;
+    int timerBoost= 400;
     public void act() 
     {
         possoAndarParaCima();
@@ -68,8 +71,8 @@ public class Pong2 extends Actor
         public void controleBoost(){
             if(getStatusBoost()){
                 //1 segundo dura em media 60 ciclos;
-                if(getTimerBoost() <= 200){
-                    setTimerBoost(getTimerBoost() + 1);
+                if(getTimerBoost() >= 0){
+                    setTimerBoost(getTimerBoost() - 1);
                 }else{
                     statusBoost = false;
                 }
